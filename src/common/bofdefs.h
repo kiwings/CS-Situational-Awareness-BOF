@@ -156,10 +156,12 @@ WINBASEAPI DWORD WINAPI NETAPI32$NetUserGetLocalGroups(LPCWSTR servername,LPCWST
 WINBASEAPI DWORD WINAPI NETAPI32$NetApiBufferFree(LPVOID Buffer);
 WINBASEAPI DWORD WINAPI NETAPI32$NetGetAnyDCName(LPCWSTR servername,LPCWSTR domainname,LPBYTE *bufptr);
 WINBASEAPI DWORD WINAPI NETAPI32$NetUserEnum(LPCWSTR servername,DWORD level,DWORD filter,LPBYTE *bufptr,DWORD prefmaxlen,LPDWORD entriesread,LPDWORD totalentries,LPDWORD resume_handle);
+WINBASEAPI DWORD WINAPI NETAPI32$NetUserAdd(LPCWSTR servername, DWORD level,LPBYTE *bufptr, LPDWORD parm_err);
 WINBASEAPI DWORD WINAPI NETAPI32$NetGroupGetUsers(LPCWSTR servername,LPCWSTR groupname,DWORD level,LPBYTE *bufptr,DWORD prefmaxlen,LPDWORD entriesread,LPDWORD totalentries,PDWORD_PTR ResumeHandle);
 WINBASEAPI DWORD WINAPI NETAPI32$NetQueryDisplayInformation(LPCWSTR ServerName,DWORD Level,DWORD Index,DWORD EntriesRequested,DWORD PreferredMaximumLength,LPDWORD ReturnedEntryCount,PVOID *SortedBuffer);
 WINBASEAPI DWORD WINAPI NETAPI32$NetLocalGroupEnum(LPCWSTR servername,DWORD level,LPBYTE *bufptr,DWORD prefmaxlen,LPDWORD entriesread,LPDWORD totalentries,PDWORD_PTR resumehandle);
 WINBASEAPI DWORD WINAPI NETAPI32$NetLocalGroupGetMembers(LPCWSTR servername,LPCWSTR localgroupname,DWORD level,LPBYTE *bufptr,DWORD prefmaxlen,LPDWORD entriesread,LPDWORD totalentries,PDWORD_PTR resumehandle);
+WINBASEAPI DWORD WINAPI NETAPI32$NetLocalGroupAddMembers(LPCWSTR servername,LPCWSTR groupname,DWORD level,LPBYTE *bufptr, DWORD totalentries);
 WINBASEAPI DWORD WINAPI NETAPI32$NetUserSetInfo(LPCWSTR servername,LPCWSTR username,DWORD level,LPBYTE buf,LPDWORD parm_err);
 WINBASEAPI DWORD WINAPI NETAPI32$NetShareEnum(LMSTR servername,DWORD level,LPBYTE *bufptr,DWORD prefmaxlen,LPDWORD entriesread,LPDWORD totalentries,LPDWORD resume_handle);
 WINBASEAPI DWORD WINAPI NETAPI32$NetApiBufferFree(LPVOID Buffer);
@@ -533,10 +535,12 @@ DECLSPEC_IMPORT WINBOOL WINAPI VERSION$VerQueryValueA(LPCVOID pBlock, LPCSTR lpS
 #define NETAPI32$NetApiBufferFree NetApiBufferFree
 #define NETAPI32$NetGetAnyDCName NetGetAnyDCName
 #define NETAPI32$NetUserEnum NetUserEnum
+#define NETAPI32$NetUserAdd  NetUserAdd
 #define NETAPI32$NetGroupGetUsers NetGroupGetUsers
 #define NETAPI32$NetQueryDisplayInformation NetQueryDisplayInformation
 #define NETAPI32$NetLocalGroupEnum NetLocalGroupEnum
 #define NETAPI32$NetLocalGroupGetMembers NetLocalGroupGetMembers
+#define NETAPI32$NetLocalGroupAddMembers NetLocalGroupAddMembers
 #define NETAPI32$NetUserSetInfo NetUserSetInfo
 #define NETAPI32$NetShareEnum NetShareEnum
 #define NETAPI32$NetApiBufferFree NetApiBufferFree
